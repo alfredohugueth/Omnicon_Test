@@ -1,0 +1,43 @@
+
+
+<div class="row">
+    
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Naves</h4>
+                <h6 class="card-subtitle">Naves piloteadas por {{ nombrePiloto }}.</h6>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nombre de Nave</th>
+                                <th>Modelo</th>
+                                <th>Clase</th>
+                                <th>Número de Pasajeros</th>
+                                <th>Películas en las que ha aparecido</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let nave of arrayNaves">
+                                <td>{{ nave.name }}</td>
+                                <td> {{ nave.model }} </td>
+                                <td> {{ nave.vehicle_class }} </td>
+                                <td> {{ nave.passengers }} </td>
+                                <td> 
+                                    <ul>
+                                        
+                                        <li *ngFor="let nombre of nave.nombrePeliculas"> {{ nombre.title }}</li>
+                                        
+                                    </ul>
+                                </td>
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

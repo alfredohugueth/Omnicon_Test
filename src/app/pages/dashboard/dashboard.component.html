@@ -1,1 +1,36 @@
-<p>dashboard works!</p>
+
+
+<div class="row">
+    
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Películas</h4>
+                <h6 class="card-subtitle">Películas guardadas en la aplicación.</h6>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Fecha de Lanzamiento</th>
+                                <th>Director</th>
+                                <th>Opening</th>
+                                <th>Productor</th>
+                                <th>Ver más</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let film of peliculas">
+                                <td>{{ film.created | date: 'shortDate'}}</td>
+                                <td> {{ film.director }} </td>
+                                <td> {{ film.opening_crawl | slice:0:50}} {{ (film.opening_crawl.length > 50) ? '...' : ''}} </td>
+                                <td> {{ film.producer }} </td>
+                                <td> <a class="clickeable" (click)="masDetallesFilm( film )">{{ film.url }}</a></td>
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

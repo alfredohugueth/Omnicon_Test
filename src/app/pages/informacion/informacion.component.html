@@ -1,0 +1,60 @@
+<div class="row">
+    
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Película</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Fecha de Lanzamiento</th>
+                                <th>Director</th>
+                                <th>Opening</th>
+                                <th>Productor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> {{ pelicula.created | date: 'shortDate'}}</td>
+                                <td> {{ pelicula.director }} </td>
+                                <td> {{ pelicula.opening_crawl | slice:0:50}} {{ (pelicula.opening_crawl.length > 50) ? '...' : ''}} </td>
+                                <td> {{ pelicula.producer }} </td>
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+
+                <br>
+
+                <h4 class="card-title">Personajes</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nombre del personaje</th>
+                                <th>Fecha de nacimiento</th>
+                                <th>Género</th>
+                                <th>Peso</th>
+                                <th>Altura</th>
+                                <th>Naves</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let personaje of personajes">
+                                <td> {{ personaje.name }}</td>
+                                <td> {{ personaje.birth_year }} </td>
+                                <td> {{ personaje.gender }}  </td>
+                                <td> {{ personaje.mass }} kg </td>
+                                <td> {{ personaje.height }} cm </td>
+                                <td *ngIf="personaje.vehicles.length>0"> <a class="clickeable" (click)="Naves( personaje.vehicles, personaje.name )"> Ver más </a> </td>
+                            </tr>    
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
